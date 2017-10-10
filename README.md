@@ -49,4 +49,4 @@ Enjoy!
 
 
 Awesome references:
-- https://github.com/miguelgrinberg/flask-celery-example/blob/master/app.py
+- https://github.com/miguelgrinberg/flask-celery-example

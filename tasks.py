@@ -1,10 +1,9 @@
-from celery import Celery
 import time
+import celery
 
-app = Celery('tasks', broker="redis://localhost:6379", backend="redis://localhost:6379/4")
+app = celery.Celery('tasks', broker="redis://localhost:6379", backend="redis://localhost:6379/4")
 
-@app.task()
-def print_hello():
-    print("Started task")
-    time.sleep(7)
-    return "Completed task!"
+@celery.task
+def my_background_task(arg1):
+    time.sleep(10)
+    return "Completed: " + arg1

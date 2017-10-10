@@ -46,3 +46,7 @@ flask run
 Enjoy!
 
 ![screen shot 2017-10-10 at 22 17 54](https://user-images.githubusercontent.com/22529514/31411242-e85c99d6-ae08-11e7-9358-c0c80de9b836.jpg)
+
+
+Awesome references:
+- https://github.com/miguelgrinberg/flask-celery-example/blob/master/app.py

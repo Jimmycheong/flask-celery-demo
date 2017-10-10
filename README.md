@@ -25,7 +25,7 @@ brew install redis
 brew services start redis
 ```
 
-Go to a suitable location (e.g Documents, Desktop) and run the following commands: 
+In the terminal, go to a suitable directory (e.g Documents, Desktop) and run the following commands: 
 
 ```
 git clone https://github.com/Jimmycheong/flask-celery-demo.git
@@ -33,9 +33,19 @@ cd flask-celery-demo-master
 
 virtualenv env 
 source env/bin/activate 
-
 pip install -r requirements.txt 
+```
+Run the celery server:
+- The -A flag refers to the modules where the celery tasks are defined. 
+- The -l flag refers to log level 
 
+```
+celery worker -A tasks -l info
+```
+
+On another terminal tab, activate the virtual environment, create environment variables and run the Flask application: 
+```
+source env/bin/activate
 export FLASK_APP=main.py
 export FLASK_DEBUG=1
 

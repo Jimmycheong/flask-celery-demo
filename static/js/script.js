@@ -3,6 +3,8 @@
     height: "500px",
   }
 
+  var host_url = window.location.href
+
     class Component extends React.Component {
       constructor(props){
         super(props)
@@ -19,8 +21,8 @@
         var this_ = this
         this.setState({status: "Changed"})
 
-        $.get("http://localhost:5000/status/"+task_id, function(data, status){
-          console.log("Status: ", data)
+        $.get(host_url+"status/"+task_id, function(data, status){
+          // console.log("Status: ", data)
           if (data == "SUCCESS") {
             this_.setState({
               status : "It's a success",
@@ -39,7 +41,7 @@
 
       startJob(e){
         var this_ = this
-        $.post("http://localhost:5000/task", function(data, status){
+        $.post(host_url+"task", function(data, status){
           console.log("task_id: ", data)
           this_.setState({engaged:true})
           this_.updateStatus(data)

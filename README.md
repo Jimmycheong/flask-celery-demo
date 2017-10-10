@@ -1,6 +1,12 @@
 # Flask with Integrated Celery
 Using celery to queue API Endpoint service tasks
 
+This Flask application includes API endpoints to provide background tasks to be run. 
+
+The tasks are processed using the multiprocessing capabilities of the python module **Celery**. 
+
+**Redis** is used as a broker to mediate between the clients and worker and as a backend to store the results for gathering at a later time.
+
 ### Technologies 
 
 - Flask 

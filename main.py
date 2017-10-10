@@ -1,3 +1,4 @@
+import time
 from flask import Flask, request, url_for, redirect, make_response,render_template
 from tasks import print_hello
 
@@ -7,10 +8,14 @@ app = Flask(__name__)
 def call_celery_task():
     if request.method == "POST":
         r = print_hello.delay()
+        while r.status == "PENDING":
+            print("sleeping...")
+            time.sleep(1)
+
+        print("job complete!")
         print(r.get())
-        print("End of main.py")
         resp = make_response(render_template('index.html'), 200)
-        resp.headers['X-Something'] = 'A value'
+        print("End of main.py")
         return resp
-    else: 
+    else:
         return "Welcome to Celery"
